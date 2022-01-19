@@ -5,6 +5,7 @@ import NewName from '../../components/NewName';
 
 const Home = ({onSubmit}) => {
   const [names, setnames] = useState([]);
+  // const [sortedName, setSortedName] = useState([]);
 
   function addNewName(name) {
     const itensCopy = Array.from(names);
@@ -24,12 +25,11 @@ const Home = ({onSubmit}) => {
     setnames(itensCopy);
   }
 
-  function sortName() {
-    console.log(names.shuffle())
-    // names.sort()
+  const shuffle = () => {
+    const itensCopy = Array.from(names);
+    itensCopy.sort(() => Math.random() - 0.5);
+    setnames(itensCopy);
   }
-
-
 
   return (
       <div className="App">
@@ -48,14 +48,14 @@ const Home = ({onSubmit}) => {
         <ul>
           {names.map((n) => (
             <li>{n.value}</li>
-          )
-          )}
+          ))}
         </ul>
       </div>
-      <p>
-        E o abençoado do Cr foi
-      </p>
-      <Button type='button' label='Sortear' onClick={sortName} />
+      <Button 
+        type='button' 
+        label='Sortear' 
+        onClick={shuffle} 
+      />
     </div>
   )
 }
