@@ -5,7 +5,6 @@ import NewName from '../../components/NewName';
 
 const Home = ({onSubmit}) => {
   const [names, setnames] = useState([]);
-  // const [sortedName, setSortedName] = useState([]);
 
   function addNewName(name) {
     const itensCopy = Array.from(names);
